@@ -341,13 +341,12 @@ class HighlightBuilder {
         pos = next.to + start
         if (pos > from) {
           this.highlightRange(inner.cursor(), Math.max(from, next.from + start), Math.min(to, pos),
-                              "", innerHighlighters)
+                              inheritedClass, innerHighlighters)
           this.startSpan(Math.min(to, pos), cls)
         }
       }
       if (hasChild) cursor.parent()
     } else if (cursor.firstChild()) {
-      if (mounted) inheritedClass = ""
       do {
         if (cursor.to <= from) continue
         if (cursor.from >= to) break
